@@ -17,6 +17,9 @@ class IntegratedRobotController(Node):
     def __init__(self):
         super().__init__("integrated_robot_controller")
         
+        # 设置日志级别为 DEBUG
+        self.get_logger().set_level(rclpy.logging.LoggingSeverity.DEBUG)
+        
         # Initialize movement parameters and state machine
         self.state = "move_forward"
         self.start_time = self.get_clock().now()
@@ -51,25 +54,24 @@ class IntegratedRobotController(Node):
         self.create_subscription(Image, "/camera/color/image_raw", self.image_callback, lidar_qos)
         self.create_timer(0.1, self.state_machine_update)
 
-
     def load_templates(self):
         """Load arrow templates for detection"""
         templates = {}
-        # Get the directory of the current script
-        script_dir = os.path.dirname(os.path.abspath(__file__))
+        package_name = 'tb3_autonomous'
+        package_share_directory = get_package_share_directory(package_name)
         
         for i in range(4):
-            templates = {}
-            package_name = 'tb3_autonomous'  # Define package_name here!
-            #template_path = os.path.join('lib/python3.10/site-packages/tb3_autonomous', f'output{i}.jpg')
-            package_share_directory = get_package_share_directory(package_name)
             template_path = os.path.join(package_share_directory, f'output{i}.jpg')
             try:
-                templates[f'arguco{i+1}'] = cv2.imread(template_path, 0)
+                template = cv2.imread(template_path, 0)
+                if template is None:
+                    self.get_logger().error(f"Template file not found: {template_path}")
+                else:
+                    templates[f'arguco{i+1}'] = template
+                    self.get_logger().debug(f"Loaded template: {template_path}")
             except Exception as e:
                 self.get_logger().error(f"Failed to load template: {str(e)}")
         return templates
-
 
     def scan_callback(self, msg):
         """Process LiDAR data for obstacle detection"""
@@ -90,7 +92,7 @@ class IntegratedRobotController(Node):
         )
         
         if self.obstacle_detected:
-            self.get_logger().info("OBSTACLE DETECTED! Initiating avoidance maneuver")
+            self.get_logger().debug("OBSTACLE DETECTED! Initiating avoidance maneuver")
             self.turning_start_time = self.get_clock().now().nanoseconds / 1e9
 
     def image_callback(self, msg):
@@ -113,6 +115,8 @@ class IntegratedRobotController(Node):
         # Contour detection and processing
         contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
+        self.get_logger().debug(f"Found {len(contours)} contours")
+        
         for cnt in contours:
             if cv2.contourArea(cnt) < 500:
                 continue
@@ -124,8 +128,15 @@ class IntegratedRobotController(Node):
                 self.current_arrow = self.template_match(warped)
                 
                 if self.current_arrow:
+                    # Calculate area of the detected contour
+                    area = cv2.contourArea(cnt)
+                    
+                    # Log the detected Arcuro and its area
+                    self.get_logger().debug(f"Detected Arcuro: {self.current_arrow}, Area: {area:.2f}")
+                    
+                    # Draw contour and label
                     cv2.drawContours(frame, [approx], -1, (0,255,0), 2)
-                    cv2.putText(frame, self.current_arrow, 
+                    cv2.putText(frame, f"{self.current_arrow} (Area: {area:.2f})", 
                                tuple(approx[0][0]), cv2.FONT_HERSHEY_SIMPLEX, 
                                0.8, (0,0,255), 2)
         return frame
@@ -182,10 +193,13 @@ class IntegratedRobotController(Node):
 
     def template_match(self, warped_img):
         """Match template against known arrows"""
+        self.get_logger().debug("Performing template matching")
         for label, template in self.templates.items():
             resized = cv2.resize(warped_img, (template.shape[1], template.shape[0]))
             res = cv2.matchTemplate(resized, template, cv2.TM_CCOEFF_NORMED)
-            if np.max(res) > 0.6:
+            max_val = np.max(res)
+            self.get_logger().debug(f"Template match result for {label}: {max_val:.4f}")
+            if max_val > 0.6:
                 return label
         return None
 

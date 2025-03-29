@@ -80,6 +80,6 @@ def generate_launch_description():
     ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
-    ld.add_action(vision_nav)
+    #ld.add_action(vision_nav)
 
     return ld
