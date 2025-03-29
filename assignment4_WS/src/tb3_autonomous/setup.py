@@ -17,6 +17,7 @@ setup(
         ('share/' + package_name + '/worlds', glob('worlds/*.world')),
         # 安装 package.xml
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name, glob(package_name + '/*.jpg')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

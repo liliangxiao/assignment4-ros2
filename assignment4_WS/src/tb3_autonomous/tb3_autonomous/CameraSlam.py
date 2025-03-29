@@ -5,7 +5,8 @@ import cv2
 import math
 import numpy as np
 import os
-    
+from ament_index_python.packages import get_package_share_directory 
+   
 from rclpy.node import Node
 from cv_bridge import CvBridge
 from geometry_msgs.msg import Twist
@@ -58,7 +59,11 @@ class IntegratedRobotController(Node):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         
         for i in range(4):
-            template_path = os.path.join(script_dir, f'output{i}.jpg')
+            templates = {}
+            package_name = 'tb3_autonomous'  # Define package_name here!
+            #template_path = os.path.join('lib/python3.10/site-packages/tb3_autonomous', f'output{i}.jpg')
+            package_share_directory = get_package_share_directory(package_name)
+            template_path = os.path.join(package_share_directory, f'output{i}.jpg')
             try:
                 templates[f'arguco{i+1}'] = cv2.imread(template_path, 0)
             except Exception as e:
