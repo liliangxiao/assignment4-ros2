@@ -27,7 +27,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-             'vision_nav = tb3_autonomous.navigation_node:main',
+             'vision_nav = tb3_autonomous.CameraSlam:main',
         ],
     },
 )

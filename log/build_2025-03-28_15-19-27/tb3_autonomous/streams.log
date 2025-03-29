@@ -1,0 +1,46 @@
+[0.605s] Invoking command in '/home/ryder/Documents/as4/assignment4-ros2/assignment3_WS/src/tb3_autonomous': PYTHONPATH=/home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/tb3_autonomous build --build-base /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build install --record /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/install.log --single-version-externally-managed install_data
+[0.820s] running egg_info
+[0.820s] creating ../../../build/tb3_autonomous/tb3_autonomous.egg-info
+[0.821s] writing ../../../build/tb3_autonomous/tb3_autonomous.egg-info/PKG-INFO
+[0.821s] writing dependency_links to ../../../build/tb3_autonomous/tb3_autonomous.egg-info/dependency_links.txt
+[0.821s] writing entry points to ../../../build/tb3_autonomous/tb3_autonomous.egg-info/entry_points.txt
+[0.821s] writing requirements to ../../../build/tb3_autonomous/tb3_autonomous.egg-info/requires.txt
+[0.821s] writing top-level names to ../../../build/tb3_autonomous/tb3_autonomous.egg-info/top_level.txt
+[0.822s] writing manifest file '../../../build/tb3_autonomous/tb3_autonomous.egg-info/SOURCES.txt'
+[0.823s] reading manifest file '../../../build/tb3_autonomous/tb3_autonomous.egg-info/SOURCES.txt'
+[0.824s] writing manifest file '../../../build/tb3_autonomous/tb3_autonomous.egg-info/SOURCES.txt'
+[0.824s] running build
+[0.824s] running build_py
+[0.824s] creating /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build
+[0.825s] creating /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib
+[0.825s] creating /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous
+[0.825s] copying tb3_autonomous/square_mover.py -> /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous
+[0.825s] copying tb3_autonomous/navigation_node.py -> /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous
+[0.825s] copying tb3_autonomous/__init__.py -> /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous
+[0.825s] copying tb3_autonomous/CameraSlam.py -> /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous
+[0.825s] running install
+[0.826s] running install_lib
+[0.826s] creating /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous
+[0.827s] copying /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous/square_mover.py -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous
+[0.827s] copying /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous/navigation_node.py -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous
+[0.827s] copying /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous/__init__.py -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous
+[0.827s] copying /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build/lib/tb3_autonomous/CameraSlam.py -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous
+[0.828s] byte-compiling /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous/square_mover.py to square_mover.cpython-310.pyc
+[0.829s] byte-compiling /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous/navigation_node.py to navigation_node.cpython-310.pyc
+[0.831s] byte-compiling /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous/__init__.py to __init__.cpython-310.pyc
+[0.831s] byte-compiling /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous/CameraSlam.py to CameraSlam.cpython-310.pyc
+[0.832s] running install_data
+[0.832s] creating /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous/launch
+[0.832s] copying launch/new_world.launch.py -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous/launch
+[0.832s] creating /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous/xacro
+[0.832s] copying xacro/turtlebot3_waffle_pi.urdf.xacro -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous/xacro
+[0.832s] creating /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous/worlds
+[0.832s] copying worlds/as3.world -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous/worlds
+[0.832s] copying worlds/new_world.world -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous/worlds
+[0.833s] copying package.xml -> /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/share/tb3_autonomous
+[0.833s] running install_egg_info
+[0.834s] Copying ../../../build/tb3_autonomous/tb3_autonomous.egg-info to /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages/tb3_autonomous-0.0.0-py3.10.egg-info
+[0.835s] running install_scripts
+[0.854s] Installing vision_nav script to /home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/tb3_autonomous
+[0.854s] writing list of installed files to '/home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/install.log'
+[0.889s] Invoked command in '/home/ryder/Documents/as4/assignment4-ros2/assignment3_WS/src/tb3_autonomous' returned '0': PYTHONPATH=/home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryder/Documents/as4/assignment4-ros2/install/tb3_autonomous/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/tb3_autonomous build --build-base /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/build install --record /home/ryder/Documents/as4/assignment4-ros2/build/tb3_autonomous/install.log --single-version-externally-managed install_data
