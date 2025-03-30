@@ -22,7 +22,9 @@ ryder@ryder-Aspire-A315-24P:~/Documents/as4/assignment4-ros2/assignment4_WS$ sou
 ryder@ryder-Aspire-A315-24P:~/Documents/as4/assignment4-ros2/assignment4_WS$ ros2 launch tb3_autonomous new_world.launch.py
 
 4. Run Main Script In New command line:
-ryder@ryder-Aspire-A315-24P:~/Documents/as4/assignment4-ros2/assignment4_WS$ source install/setup.sh 
+Setup first:
+ryder@ryder-Aspire-A315-24P:~/Documents/as4/assignment4-ros2/assignment4_WS$ source install/setup.sh
+Run main script:
 ryder@ryder-Aspire-A315-24P:~/Documents/as4/assignment4-ros2/assignment4_WS$ python3 src/tb3_autonomous/tb3_autonomous/CameraSlam.py
 
 Summary: 1 package finished [1.42s]
